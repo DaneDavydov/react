@@ -34,7 +34,7 @@ class App extends React.Component {
         <nav className="navigation">
           <ul className="navigation-list">
             <li className="navigation-link">
-              <Link to="/home">
+              <Link to="/">
                 Home
               </Link>
             </li>
@@ -51,7 +51,7 @@ class App extends React.Component {
           </ul>
         </nav>
         <Switch>
-          <Route path="/home">
+          <Route path="/" exact>
             <div className="App">
               {userData.map(({name, picture, location, id}) => {
                 return (
