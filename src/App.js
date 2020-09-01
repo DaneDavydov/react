@@ -51,7 +51,7 @@ class App extends React.Component {
           </ul>
         </nav>
         <Switch>
-          <Route path="/home" exact>
+          <Route path="/home">
             <div className="App">
               {userData.map(({name, picture, location, id}) => {
                 return (
