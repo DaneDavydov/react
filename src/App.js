@@ -1,31 +1,68 @@
 import React from 'react';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from 'react-router-dom';
+
 import logo from './logo.svg';
 import './App.css';
 
+import Message from './components/Message';
+
 function App() {
-  const date = new Date();
-  const displayDate = `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`;
+  const data = [
+    { id: 1, name: 'Денис', logo, title: 'Заголовок', text: 'Hello World!!!' },
+    { id: 2, name: 'Дима', logo, title: 'Заголовок Дмитрия', text: 'Hello World!!! от Димы' },
+    { id: 3, name: 'Дане', logo, title: 'Заголовок Дане', text: 'Hello World!!! Данееее' }
+  ];
 
   return (
-    <div className="App">
-      <div className="message">
-        <div className="message-header">
-          <img className="message-header-image" src={logo} alt="" />
-          <div className="message-header-text_block">
-            <p className="message-header-title">Ivan</p>
-            <span className="message-header-date">{displayDate}</span>
-          </div>   
-        </div>
-        <div className="message-body">
-          <h2 className="message-body-title">
-            Hi this is title!
-          </h2>
-          <p className="message-body-content">
-            Lorem ipsum semi-long text blablabla
-          </p>
-        </div>
-      </div>
-    </div>
+    <Router>
+      <nav className="navigation">
+        <ul className="navigation-list">
+          <li className="navigation-link">
+            <Link to="/">
+              Home
+            </Link>
+          </li>
+          <li className="navigation-link">
+            <Link to="/hello">
+              Home
+            </Link>
+          </li>
+          <li className="navigation-link">
+            <Link to="/signin">
+              Home
+            </Link>
+          </li>
+        </ul>
+      </nav>
+      <Switch>
+        <Route patch="/" exact>
+          <div className="App">
+            {data.map(({name, logo, title, text, id}) => {
+              return (
+                <Message
+                  name={name}
+                  logo={logo}
+                  title={title}
+                  text={text}
+                  key={id}
+                />
+              );
+            })}
+          </div>
+        </Route>
+        <Route path="/hello">
+          Привет!
+        </Route>
+        <Route path="/signin">
+          Я - регистратура!
+        </Route>
+      </Switch>
+    </Router>
   );
 }
 

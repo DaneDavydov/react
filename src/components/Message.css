@@ -1,0 +1,60 @@
+.message {
+  width: 500px;
+  border-top: 1px solid lightseagreen;
+  border-bottom: 1px solid lightseagreen;
+  display: block;
+  padding: 20px 7px;
+}
+
+.message-header {
+  display: flex;
+}
+
+.message-header-text_block {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.message-header-image {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+}
+
+.message-header-title {
+  font-size: 12px;
+}
+
+.message-header-date {
+  font-size: 12px;
+  color: lightseagreen;
+  opacity: .5;
+}
+
+.message-header-button {
+  position: relative;
+  border: 1px solid;
+  border-radius: 10px;
+  height: 30px;
+  width: 30px;
+  margin-left: auto;
+  align-self: center;
+  transition: .3s;
+  cursor: pointer;
+}
+
+.message-header-button.is_active {
+  color: red;
+}
+
+.message-header-button::after {
+  content: '♡';
+  color: inherit;
+  position: absolute;
+  left: 6px;
+  top: 0px;
+  width: 10px;
+  height: 10px;
+  transition: .3s;
+}
