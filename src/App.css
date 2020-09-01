@@ -33,3 +33,7 @@
 .navigation-link {
   color: white;
 }
+
+a:-webkit-any-link {
+  color: white;
+}
